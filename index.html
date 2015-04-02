@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html ng-app="Mailbox">
+<head>
+	<title></title>
+	<!-- AngularJS -->
+	<script src="node_modules/angular/angular.min.js" type="text/javascript" charset="utf-8"></script>
+	<script src="node_modules/angular-route/angular-route.js" type="text/javascript" charset="utf-8"></script>
+
+	<!-- SocketIO -->
+	<script src="node_modules/socket.io-client/socket.io.js" type="text/javascript" charset="utf-8" ></script>
+	<script src="node_modules/angular-socket-io/socket.js" type="text/javascript" charset="utf-8" ></script>
+
+	<!-- App -->
+	<script src="controllers/ConversationController.js" type="text/javascript" charset="utf-8" ></script>
+	<script src="app.js" type="text/javascript" charset="utf-8"></script>
+	<script src="controllers/ChatController.js" type="text/javascript" charset="utf-8"></script>
+	<script src="controllers/ConversationController.js" type="text/javascript" charset="utf-8" ></script>
+</head>
+<body>
+
+<!-- Conteneur central du bloc -->
+<div ng-controller="MainCtrl">
+
+	<p>{{ common }}</p>
+
+	<!-- Le bloc de navigation -->
+	<nav class="side">
+		<div ng-repeat="conversation in conversations">
+			<a href="#/{{ conversation.id }}">{{ conversation.sender }}</a> |
+		</div>
+		<a href="#/create">Manager</a> 
+	</nav>
+
+	<!-- Le bloc de content -->
+	<div ng-view  style="background-color:gray;"></div>
+</div>
+
+</body>
+</html>
